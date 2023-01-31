@@ -3,6 +3,7 @@ import MessageView from "../views/MessageView";
 import Spacer from "../components/Spacer";
 import UserReplyView from "../views/UserReplyView";
 import ConversationListView from "../views/ConversationListView";
+import Bubble from "../components/Bubble";
 
 const USER_REPLIES = [
   { id: 1, alternatives: ["Lab 1", "Lab 2", "Lab 3"] },
@@ -11,14 +12,24 @@ const USER_REPLIES = [
 ];
 
 const QUERIES = [
-  "Hello there! What do you need help with today?",
-  "Ok! And what task are you curently stuck on?",
+  { id: 1, query: "Hello there! What do you need help with today?" },
+  { id: 2, query: "Ok! And what task are you curently stuck on?" },
+  {
+    id: 3,
+    query:
+      "All right! So this task handles string manipulation in Python. Here are some helpful links to help you on your way!",
+    links: [
+      {
+        label: "String manipulation",
+        url: "https://www.pythonforbeginners.com/basics/string-manipulation-in-python#htoc-string-manipulation-in-python",
+      },
+    ],
+  },
 ];
 
 export default function MainPresenter() {
   const [levelState, setLevelState] = React.useState(0); // tells us which level the user is at and what the chatbot should respond with
   const [replyList, setReplyList] = React.useState([]); // list of indexes of responses
-  const [reply, setReply] = React.useState(); // list of indexes of responses
 
   function updateReplyListCB(resp) {
     setReplyList([...replyList, resp]);
@@ -41,12 +52,21 @@ export default function MainPresenter() {
         userReplyData={USER_REPLIES}
         userReplyList={replyList}
       />
-      <MessageView query={QUERIES[levelState]} />
+      <MessageView query={QUERIES[levelState].query} />
       <Spacer size={3} />
-      <UserReplyView
-        data={USER_REPLIES[levelState]}
-        addReply={updateReplyListCB}
-      />
+      {levelState < 2 ? (
+        <UserReplyView
+          data={USER_REPLIES[levelState]}
+          addReply={updateReplyListCB}
+        />
+      ) : (
+        // Needs link component in combination with bubble,
+        // also how to present the right answer to user input?
+        // Check with replyList to access right answer
+        <a href={QUERIES[levelState].links[0].url}>
+          <Bubble message={QUERIES[levelState].links[0].label} />
+        </a>
+      )}
     </div>
   );
 }

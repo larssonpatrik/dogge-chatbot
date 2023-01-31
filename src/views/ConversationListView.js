@@ -12,7 +12,7 @@ export default function ConversationListView(props) {
   return userReplyList.map((replyIndex, i) => {
     return (
       <div key={i}>
-        <MessageView query={QUERIES[i]} />
+        <MessageView query={QUERIES[i].query} />
         <Spacer size={3} />
         <div style={{ display: "flex", justifyContent: "right" }}>
           <Bubble
