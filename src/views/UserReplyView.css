@@ -1,0 +1,11 @@
+.response-msg-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.response-box-container {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}

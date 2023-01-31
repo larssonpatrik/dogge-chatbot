@@ -1,0 +1,16 @@
+.message-text {
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.2;
+}
+
+.time-text {
+  font-weight: 500;
+  font-size: 14px;
+  color: rgb(110, 110, 110);
+  text-align: center;
+}
+
+.meta-text {
+  padding: 0 16px;
+}
