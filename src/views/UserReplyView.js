@@ -6,26 +6,21 @@ import { MetaText } from "../components/Typography";
 import "./UserReplyView.css";
 
 export default function UserReplyView(props) {
-  console.log(props);
-  if (props.reply) {
-    return (
-      <div className="response-msg-container">
-        <Bubble userReply={true} message={props.reply} />
+  return (
+    <div className="response-msg-container">
+      <MetaText>Please choose an alternative!</MetaText>
+      <Spacer size={1} />
+      <div className="response-box-container">
+        {props.data.alternatives.map((reply, i) => {
+          return (
+            <ResponseBox
+              key={i}
+              message={reply}
+              action={() => props.addReply(i)}
+            />
+          );
+        })}
       </div>
-    );
-  } else {
-    return (
-      <div className="response-msg-container">
-        <MetaText>Please choose an alternative!</MetaText>
-        <Spacer size={1} />
-        <div className="response-box-container">
-          {props.data.alternatives.map((reply, i) => {
-            return (
-              <ResponseBox message={reply} action={() => props.addReply(i)} />
-            );
-          })}
-        </div>
-      </div>
-    );
-  }
+    </div>
+  );
 }
