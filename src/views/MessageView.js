@@ -13,7 +13,7 @@ export default function MessageView(props) {
       <TimeText>{currentTime}</TimeText>
       <MetaText>Dogge</MetaText>
       <Spacer size={1} />
-      <Bubble message={props.query} />
+      <Bubble>{props.query}</Bubble>
     </div>
   );
 }

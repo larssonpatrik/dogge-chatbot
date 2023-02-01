@@ -15,10 +15,9 @@ export default function ConversationListView(props) {
         <MessageView query={QUERIES[i].query} />
         <Spacer size={3} />
         <div style={{ display: "flex", justifyContent: "right" }}>
-          <Bubble
-            userReply={true}
-            message={REPLIES[i].alternatives[replyIndex]}
-          />
+          <Bubble userReply={true}>
+            {REPLIES[i].alternatives[replyIndex]}
+          </Bubble>
         </div>
       </div>
     );

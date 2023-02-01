@@ -9,13 +9,13 @@ export default function Bubble(props) {
         className="bubble-container"
         style={{ backgroundColor: "#F1B777", ...props.style }}
       >
-        <MessageText>{props.message}</MessageText>
+        <MessageText>{props.children}</MessageText>
       </div>
     );
   } else {
     return (
       <div className="bubble-container" style={{ ...props.style }}>
-        <MessageText>{props.message}</MessageText>
+        <MessageText>{props.children}</MessageText>
       </div>
     );
   }

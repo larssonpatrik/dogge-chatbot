@@ -1,5 +1,4 @@
 import React from "react";
-import Bubble from "../components/Bubble";
 import ResponseBox from "../components/ResponseBox";
 import Spacer from "../components/Spacer";
 import { MetaText } from "../components/Typography";

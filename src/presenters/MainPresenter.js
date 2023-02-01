@@ -3,7 +3,7 @@ import MessageView from "../views/MessageView";
 import Spacer from "../components/Spacer";
 import UserReplyView from "../views/UserReplyView";
 import ConversationListView from "../views/ConversationListView";
-import Bubble from "../components/Bubble";
+import LinkBubbleList from "../components/LinkBubbleList";
 
 const USER_REPLIES = [
   { id: 1, alternatives: ["Lab 1", "Lab 2", "Lab 3"] },
@@ -14,17 +14,73 @@ const USER_REPLIES = [
 const QUERIES = [
   { id: 1, query: "Hello there! What do you need help with today?" },
   { id: 2, query: "Ok! And what task are you curently stuck on?" },
-  {
-    id: 3,
-    query:
-      "All right! So this task handles string manipulation in Python. Here are some helpful links to help you on your way!",
-    links: [
-      {
-        label: "String manipulation",
-        url: "https://www.pythonforbeginners.com/basics/string-manipulation-in-python#htoc-string-manipulation-in-python",
-      },
-    ],
-  },
+];
+
+const RESULTS = [
+  [
+    {
+      id: 1,
+      query:
+        "All right! So this task handles string manipulation in Python. Here are some helpful links to help you on your way!",
+      links: [
+        {
+          label: "String Manipulation",
+          url: "https://www.pythonforbeginners.com/basics/string-manipulation-in-python#htoc-string-manipulation-in-python",
+        },
+        {
+          label: "String Operations",
+          url: "https://www.pythonforbeginners.com/basics/string-manipulation-in-python#htoc-string-slicing",
+        },
+      ],
+    },
+    {
+      id: 2,
+      query:
+        "Great! This task is about dictionaries in Python! Here are some helpful links to help you on your way!",
+      links: [
+        {
+          label: "Dictionaries in Python",
+          url: "https://www.pythonforbeginners.com/basics/string-manipulation-in-python#htoc-string-manipulation-in-python",
+        },
+        {
+          label: "Dictionary commands",
+          url: "https://www.pythonforbeginners.com/basics/string-manipulation-in-python#htoc-string-slicing",
+        },
+      ],
+    },
+  ],
+  [
+    {
+      id: 3,
+      query:
+        "Fantastic! This task is quite tricky, it is about file reading and writing. Here are some helpful links to help you on your way!",
+      links: [
+        {
+          label: "File Writing",
+          url: "https://www.pythonforbeginners.com/basics/string-manipulation-in-python#htoc-string-manipulation-in-python",
+        },
+        {
+          label: "File Reading",
+          url: "https://www.pythonforbeginners.com/basics/string-manipulation-in-python#htoc-string-slicing",
+        },
+      ],
+    },
+    {
+      id: 4,
+      query:
+        "Awesome! Let's learn about Quantum Python Programming! Here are some helpful links to help you on your way!",
+      links: [
+        {
+          label: "Elusive semicolons",
+          url: "https://www.pythonforbeginners.com/basics/string-manipulation-in-python#htoc-string-manipulation-in-python",
+        },
+        {
+          label: "Alien malware",
+          url: "https://www.pythonforbeginners.com/basics/string-manipulation-in-python#htoc-string-slicing",
+        },
+      ],
+    },
+  ],
 ];
 
 export default function MainPresenter() {
@@ -52,20 +108,22 @@ export default function MainPresenter() {
         userReplyData={USER_REPLIES}
         userReplyList={replyList}
       />
-      <MessageView query={QUERIES[levelState].query} />
-      <Spacer size={3} />
       {levelState < 2 ? (
-        <UserReplyView
-          data={USER_REPLIES[levelState]}
-          addReply={updateReplyListCB}
-        />
+        <>
+          <MessageView query={QUERIES[levelState].query} />
+          <UserReplyView
+            data={USER_REPLIES[levelState]}
+            addReply={updateReplyListCB}
+          />
+        </>
       ) : (
         // Needs link component in combination with bubble,
         // also how to present the right answer to user input?
         // Check with replyList to access right answer
-        <a href={QUERIES[levelState].links[0].url}>
-          <Bubble message={QUERIES[levelState].links[0].label} />
-        </a>
+        <>
+          <MessageView query={RESULTS[replyList[0]][replyList[1]].query} />
+          <LinkBubbleList links={RESULTS[replyList[0]][replyList[1]].links} />
+        </>
       )}
     </div>
   );
