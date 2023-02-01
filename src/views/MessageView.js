@@ -4,15 +4,12 @@ import Spacer from "../components/Spacer";
 import { MetaText, TimeText } from "../components/Typography";
 
 export default function MessageView(props) {
-  const time = new Date();
-  let currentTime =
-    time.getHours().toString() + ":" + time.getMinutes().toString();
-
   return (
     <div className="message-container">
-      <TimeText>{currentTime}</TimeText>
+      <TimeText />
+      <Spacer size={3} />
       <MetaText>Dogge</MetaText>
-      <Spacer size={1} />
+      <Spacer size={0} />
       <Bubble>{props.query}</Bubble>
     </div>
   );

@@ -1,14 +1,33 @@
 import React from "react";
 import "./Typography.css";
 
+const time = new Date();
+let hours = time.getHours().toString();
+let minutes =
+  time.getMinutes().toString().length < 2
+    ? "0" + time.getMinutes().toString()
+    : time.getMinutes().toString();
+
 export function MessageText(props) {
-  return <p className="message-text">{props.children}</p>;
+  return (
+    <p className="message-text" style={{ ...props.style }}>
+      {props.children}
+    </p>
+  );
 }
 
 export function TimeText(props) {
-  return <p className="time-text">{props.children}</p>;
+  return (
+    <p className="time-text" style={{ ...props.style }}>
+      {hours + ":" + minutes}
+    </p>
+  );
 }
 
 export function MetaText(props) {
-  return <p className="meta-text">{props.children}</p>;
+  return (
+    <p className="meta-text" style={{ ...props.style }}>
+      {props.children}
+    </p>
+  );
 }
