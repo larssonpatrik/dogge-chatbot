@@ -1,6 +1,7 @@
 .base-button {
   padding: 12px 24px;
   border-radius: 18px;
+  color: black;
 }
 
 .primary-button {

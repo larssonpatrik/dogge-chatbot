@@ -14,3 +14,12 @@
 .meta-text {
   padding: 0 16px;
 }
+
+.title-text {
+  font-size: 40px;
+  font-weight: 600;
+}
+
+.subtitle-text {
+  font-size: 24px;
+}

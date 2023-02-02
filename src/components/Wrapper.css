@@ -1,0 +1,7 @@
+.wrapper {
+  margin: 0 20vw;
+  padding: 0 32px;
+  background-color: white;
+  min-height: 100vh;
+  height: 100%;
+}

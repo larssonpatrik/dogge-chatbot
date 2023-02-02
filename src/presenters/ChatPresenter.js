@@ -7,6 +7,8 @@ import LinkBubbleList from "../components/LinkBubbleList";
 import { USER_REPLIES, QUERIES, RESULTS } from "../DATA";
 import { PrimaryButton, SecondaryButton } from "../components/Buttons";
 import { MetaText } from "../components/Typography";
+import Wrapper from "../components/Wrapper";
+import Logo from "../components/Logo";
 
 export default function ChatPresenter() {
   const [levelState, setLevelState] = React.useState(0); // tells us which level the user is at and what the chatbot should respond with
@@ -18,17 +20,11 @@ export default function ChatPresenter() {
   }
 
   return (
-    <div
-      style={{
-        margin: "0 20vw",
-        padding: "0 32px",
-        backgroundColor: "white",
-        minHeight: "100vW",
-        height: "100%",
-      }}
-    >
+    <Wrapper>
       <Spacer size={5} />
-
+      <div style={{ display: "flex", width: "100%", justifyContent: "center" }}>
+        <Logo />
+      </div>
       <ConversationListView
         queryData={QUERIES}
         userReplyData={USER_REPLIES}
@@ -39,6 +35,7 @@ export default function ChatPresenter() {
       {levelState < 2 ? (
         <>
           <MessageView query={QUERIES[levelState].query} />
+          <Spacer size={3} />
           <UserReplyView
             data={USER_REPLIES[levelState]}
             addReply={updateReplyListCB}
@@ -70,6 +67,7 @@ export default function ChatPresenter() {
           </div>
         </div>
       )}
-    </div>
+      <Spacer size={8} />
+    </Wrapper>
   );
 }

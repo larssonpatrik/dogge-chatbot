@@ -31,3 +31,11 @@ export function MetaText(props) {
     </p>
   );
 }
+
+export function TitleText(props) {
+  return <h1 className="title-text">{props.children}</h1>;
+}
+
+export function SubTitleText(props) {
+  return <h2 className="subtitle-text">{props.children}</h2>;
+}

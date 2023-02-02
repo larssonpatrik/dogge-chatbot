@@ -12,7 +12,8 @@ export default function ConversationListView(props) {
 
   return userReplyList.map((replyIndex, i) => {
     return (
-      <div className="test" key={i}>
+      <div key={i}>
+        <Spacer size={5} />
         <MessageView query={QUERIES[i].query} />
         <Spacer size={3} />
         <TimeText />
@@ -24,7 +25,6 @@ export default function ConversationListView(props) {
             {REPLIES[i].alternatives[replyIndex]}
           </Bubble>
         </div>
-        <Spacer size={5} />
       </div>
     );
   });
