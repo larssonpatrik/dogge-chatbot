@@ -9,6 +9,7 @@ import { PrimaryButton, SecondaryButton } from "../components/Buttons";
 import { MetaText } from "../components/Typography";
 import Wrapper from "../components/Wrapper";
 import Logo from "../components/Logo";
+import { BackNav } from "../components/Navigation";
 
 export default function ChatPresenter() {
   const [levelState, setLevelState] = React.useState(0); // tells us which level the user is at and what the chatbot should respond with
@@ -21,9 +22,22 @@ export default function ChatPresenter() {
 
   return (
     <Wrapper>
-      <Spacer size={5} />
-      <div style={{ display: "flex", width: "100%", justifyContent: "center" }}>
+      <Spacer size={3} />
+      <BackNav />
+      <Spacer size={3} />
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          width: "100%",
+          alignItems: "center",
+        }}
+      >
         <Logo />
+        <Spacer size={2} />
+        <MetaText style={{ color: "gray" }}>
+          You are now talking with Dogge, the furry chatbot!
+        </MetaText>
       </div>
       <ConversationListView
         queryData={QUERIES}
@@ -42,9 +56,6 @@ export default function ChatPresenter() {
           />
         </>
       ) : (
-        // Needs link component in combination with bubble,
-        // also how to present the right answer to user input?
-        // Check with replyList to access right answer
         <div>
           <MessageView query={RESULTS[replyList[0]][replyList[1]].query} />
           <LinkBubbleList links={RESULTS[replyList[0]][replyList[1]].links} />
