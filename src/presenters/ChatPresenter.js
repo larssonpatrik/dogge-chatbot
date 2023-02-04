@@ -5,7 +5,11 @@ import UserReplyView from "../views/UserReplyView";
 import ConversationListView from "../views/ConversationListView";
 import LinkBubbleList from "../components/LinkBubbleList";
 import { USER_REPLIES, QUERIES, RESULTS } from "../DATA";
-import { PrimaryButton, SecondaryButton } from "../components/Buttons";
+import {
+  PrimaryButton,
+  SecondaryButton,
+  TertiaryButton,
+} from "../components/Buttons";
 import { MetaText } from "../components/Typography";
 import Wrapper from "../components/Wrapper";
 import Logo from "../components/Logo";
@@ -15,6 +19,8 @@ import { useNavigate } from "react-router-dom";
 export default function ChatPresenter() {
   const [levelState, setLevelState] = React.useState(0); // tells us which level the user is at and what the chatbot should respond with
   const [replyList, setReplyList] = React.useState([]); // list of indexes of responses
+  const [satisfaction, setSatisfaction] = React.useState(); // Checks what the final response after rating the experience should be
+
   const navigate = useNavigate();
 
   function updateReplyListCB(resp) {
@@ -23,7 +29,7 @@ export default function ChatPresenter() {
   }
 
   function navigateTo(path) {
-    navigate("/end/" + path);
+    navigate(path);
   }
 
   return (
@@ -79,17 +85,60 @@ export default function ChatPresenter() {
               </MetaText>
               <Spacer size={2} />
               <div style={{ display: "flex", gap: 16 }}>
-                <PrimaryButton action={() => navigateTo("true")}>
+                <PrimaryButton
+                  action={() => setSatisfaction(true)}
+                  style={
+                    satisfaction === true
+                      ? {}
+                      : satisfaction === false
+                      ? { backgroundColor: "#e4e6eb" }
+                      : {}
+                  }
+                >
                   Yes, thank you Dogge!
                 </PrimaryButton>
-                <SecondaryButton action={() => navigateTo("false")}>
+                <SecondaryButton
+                  action={() => setSatisfaction(false)}
+                  style={
+                    satisfaction === false
+                      ? {}
+                      : satisfaction === true
+                      ? { backgroundColor: "#e4e6eb" }
+                      : {}
+                  }
+                >
                   No, but thanks for trying Dogge!
                 </SecondaryButton>
               </div>
             </div>
           </div>
         )}
-        <Spacer size={8} />
+        <Spacer size={5} />
+        {satisfaction !== undefined ? (
+          <>
+            <MessageView
+              query={
+                satisfaction === true
+                  ? "How great! I'm thrilled I could help out! Please come back and talk to me if you are ever in trouble again!"
+                  : "I'm sorry I couldn't help you out! Please come back and talk to me if you are ever in trouble again!"
+              }
+            />
+            <Spacer size={5} />
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+              }}
+            >
+              {/* Add that data sends when this button is pressed? */}
+              <TertiaryButton action={() => navigateTo("/")}>
+                Exit chat
+              </TertiaryButton>
+              <Spacer size={5} />
+            </div>
+          </>
+        ) : null}
       </Wrapper>
       <Spacer size={2} />
     </>

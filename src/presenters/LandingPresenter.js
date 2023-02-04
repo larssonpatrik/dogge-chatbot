@@ -9,7 +9,10 @@ import Logo from "../components/Logo";
 export default function LandingPresenter() {
   return (
     <>
-      <Wrapper className="flex-center-vertical" style={{ minHeight: "95vh " }}>
+      <Wrapper
+        className="flex-center-vertical"
+        style={{ minHeight: "95vh", borderRadius: "18px 18px 0 0" }}
+      >
         <Spacer size={5} />
         <Logo size="big" />
         <Spacer size={5} />
@@ -38,9 +41,13 @@ export default function LandingPresenter() {
           <PrimaryButton>Let's get talking!</PrimaryButton>
         </Link>
       </Wrapper>
-      <Wrapper className="flex-center-vertical" style={{ minHeight: "5vh" }}>
+      <Wrapper
+        className="flex-center-vertical"
+        style={{ minHeight: "5vh", borderRadius: "0 0 18px 18px" }}
+      >
         <MetaText>Developed by Patrik Larsson & Samuel Ribaric 2023</MetaText>
       </Wrapper>
+      <Spacer size={2} />{" "}
     </>
   );
 }

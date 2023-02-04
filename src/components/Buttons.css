@@ -12,6 +12,10 @@
   background-color: #f17777;
 }
 
+.tertiary-button {
+  background-color: #f1b777;
+}
+
 @media screen and (max-width: 500px) {
   .base-button {
     font-size: 14px;
@@ -25,4 +29,8 @@
 
 .secondary-button:hover {
   background-color: #e15757;
+}
+
+.tertiary-button:hover {
+  background-color: #dc9950;
 }
