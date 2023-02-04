@@ -5,10 +5,7 @@ import { MessageText } from "./Typography";
 export default function Bubble(props) {
   if (props.userReply) {
     return (
-      <div
-        className="bubble-container"
-        style={{ backgroundColor: "#F1B777", ...props.style }}
-      >
+      <div className="user-reply-bubble" style={{ ...props.style }}>
         <MessageText>{props.children}</MessageText>
       </div>
     );

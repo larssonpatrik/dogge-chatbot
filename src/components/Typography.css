@@ -13,6 +13,7 @@
 
 .meta-text {
   padding: 0 16px;
+  line-height: 1.25;
 }
 
 .title-text {
@@ -22,4 +23,11 @@
 
 .subtitle-text {
   font-size: 24px;
+  text-align: center;
+}
+
+@media screen and (max-width: 500px) {
+  .meta-text {
+    font-size: 12px;
+  }
 }

@@ -26,7 +26,7 @@ export function TimeText(props) {
 
 export function MetaText(props) {
   return (
-    <p className="meta-text" style={{ ...props.style }}>
+    <p className={"meta-text " + props.className} style={{ ...props.style }}>
       {props.children}
     </p>
   );

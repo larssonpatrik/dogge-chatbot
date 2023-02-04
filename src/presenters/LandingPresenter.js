@@ -20,7 +20,14 @@ export default function LandingPresenter() {
         </SubTitleText>
         <Spacer size={4} />
 
-        <MetaText style={{ maxWidth: 750, textAlign: "center", color: "gray" }}>
+        <MetaText
+          style={{
+            maxWidth: 750,
+            textAlign: "center",
+            color: "gray",
+            padding: 0,
+          }}
+        >
           This chatbot is part of a Bachelor Thesis project produced by Patrik
           Larsson and Samuel Ribaric. The intended use is to supplement
           programming lab sessions to ease the TA's workload as well as

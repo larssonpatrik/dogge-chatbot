@@ -11,3 +11,18 @@
 .secondary-button {
   background-color: #f17777;
 }
+
+@media screen and (max-width: 500px) {
+  .base-button {
+    font-size: 14px;
+    padding: 12px 24px;
+  }
+}
+
+.primary-button:hover {
+  background-color: #64e157;
+}
+
+.secondary-button:hover {
+  background-color: #e15757;
+}

@@ -5,10 +5,10 @@ import { MetaText, TimeText } from "../components/Typography";
 
 export default function MessageView(props) {
   return (
-    <div className="message-container">
+    <div>
       <TimeText />
       <Spacer size={3} />
-      <MetaText>Dogge</MetaText>
+      <MetaText style={{ fontSize: 16 }}>Dogge</MetaText>
       <Spacer size={0} />
       <Bubble>{props.query}</Bubble>
     </div>
