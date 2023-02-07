@@ -34,6 +34,7 @@ export default function ChatPresenter() {
 
   return (
     <>
+      <Spacer size={2} />
       <Wrapper>
         <Spacer size={3} />
         <BackNav />

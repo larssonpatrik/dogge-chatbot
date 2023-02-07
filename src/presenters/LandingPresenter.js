@@ -9,6 +9,7 @@ import Logo from "../components/Logo";
 export default function LandingPresenter() {
   return (
     <>
+      <Spacer size={2} />
       <Wrapper
         className="flex-center-vertical"
         style={{ minHeight: "95vh", borderRadius: "18px 18px 0 0" }}
@@ -47,7 +48,7 @@ export default function LandingPresenter() {
       >
         <MetaText>Developed by Patrik Larsson & Samuel Ribaric 2023</MetaText>
       </Wrapper>
-      <Spacer size={2} />{" "}
+      <Spacer size={2} />
     </>
   );
 }
