@@ -15,6 +15,7 @@ import Wrapper from "../components/Wrapper";
 import Logo from "../components/Logo";
 import { BackNav } from "../components/Navigation";
 import { useNavigate } from "react-router-dom";
+import { addDataTEST } from "../firebaseModel";
 
 export default function ChatPresenter() {
   const [levelState, setLevelState] = React.useState(0); // tells us which level the user is at and what the chatbot should respond with
@@ -28,7 +29,11 @@ export default function ChatPresenter() {
     setLevelState(levelState + 1);
   }
 
-  function navigateTo(path) {
+  function exit(path) {
+    addDataTEST({
+      userSucces: satisfaction,
+      time: (Math.random() * 10).toFixed(2),
+    });
     navigate(path);
   }
 
@@ -133,7 +138,7 @@ export default function ChatPresenter() {
               }}
             >
               {/* Add that data sends when this button is pressed? */}
-              <TertiaryButton action={() => navigateTo("/")}>
+              <TertiaryButton action={() => exit("/")}>
                 Exit chat
               </TertiaryButton>
               <Spacer size={5} />
