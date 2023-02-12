@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import MessageView from "../views/MessageView";
 import Spacer from "../components/Spacer";
 import UserReplyView from "../views/UserReplyView";
@@ -21,6 +21,7 @@ export default function ChatPresenter() {
   const [levelState, setLevelState] = React.useState(0); // tells us which level the user is at and what the chatbot should respond with
   const [replyList, setReplyList] = React.useState([]); // list of indexes of responses
   const [satisfaction, setSatisfaction] = React.useState(); // Checks what the final response after rating the experience should be
+  const [startTime] = React.useState(new Date().getTime());
 
   const navigate = useNavigate();
 
@@ -30,9 +31,12 @@ export default function ChatPresenter() {
   }
 
   function exit(path) {
+    const endTime = new Date();
+    const elapsedTime = (endTime.getTime() - startTime) / 1000;
+
     addDataTEST({
       userSucces: satisfaction,
-      time: (Math.random() * 10).toFixed(2),
+      time: elapsedTime,
     });
     navigate(path);
   }
