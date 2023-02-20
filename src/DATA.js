@@ -1,6 +1,13 @@
 //
 const USER_REPLIES = [
-  { id: 1, alternatives: ["Lab 1", "Lab 2", "Lab 3"] },
+  {
+    id: 1,
+    alternatives: [
+      "Lab 1: Basic Python Programming",
+      "Lab 2: List & Dictionaries",
+      "Lab 3: Graphical User Interfaces",
+    ],
+  },
   {
     id: 2,
     alternatives: ["Task 1.1", "Task 1.2", "Task 1.3"],
