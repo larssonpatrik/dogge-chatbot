@@ -141,7 +141,6 @@ export default function ChatPresenter() {
                 alignItems: "center",
               }}
             >
-              {/* Add that data sends when this button is pressed? */}
               <TertiaryButton action={() => exit("/")}>
                 Exit chat
               </TertiaryButton>

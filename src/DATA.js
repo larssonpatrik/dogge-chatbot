@@ -10,7 +10,7 @@ const USER_REPLIES = [
   },
   {
     id: 2,
-    alternatives: ["Task 1.1", "Task 1.2", "Task 1.3"],
+    alternatives: ["Task 1.1", "Task 1.2"],
   },
 ];
 
@@ -24,6 +24,7 @@ const QUERIES = [
 const RESULTS = [
   [
     {
+      // Alternative: 1 - 1
       id: 1,
       query:
         "All right! So this task handles string manipulation in Python. Here are some helpful links to help you on your way! L1, T1.1",
@@ -39,6 +40,7 @@ const RESULTS = [
       ],
     },
     {
+      // Alternative: 1 - 2
       id: 2,
       query:
         "Great! This task is about dictionaries in Python! Here are some helpful links to help you on your way! L1, T1.2",
@@ -55,6 +57,7 @@ const RESULTS = [
     },
   ],
   [
+    // Alternative: 2 - 1
     {
       id: 3,
       query:
@@ -71,6 +74,41 @@ const RESULTS = [
       ],
     },
     {
+      // Alternative: 2 - 2
+      id: 4,
+      query:
+        "Awesome! Let's learn about Quantum Python Programming! Here are some helpful links to help you on your way! L2, T1.2",
+      links: [
+        {
+          label: "Elusive semicolons",
+          url: "https://www.pythonforbeginners.com/basics/string-manipulation-in-python#htoc-string-manipulation-in-python",
+        },
+        {
+          label: "Alien malware",
+          url: "https://www.pythonforbeginners.com/basics/string-manipulation-in-python#htoc-string-slicing",
+        },
+      ],
+    },
+  ],
+  [
+    {
+      // Alternative: 3 - 1
+      id: 3,
+      query:
+        "Fantastic! This task is quite tricky, it is about file reading and writing. Here are some helpful links to help you on your way! L2, T1.1",
+      links: [
+        {
+          label: "File Writing",
+          url: "https://www.pythonforbeginners.com/basics/string-manipulation-in-python#htoc-string-manipulation-in-python",
+        },
+        {
+          label: "File Reading",
+          url: "https://www.pythonforbeginners.com/basics/string-manipulation-in-python#htoc-string-slicing",
+        },
+      ],
+    },
+    {
+      // Alternative: 3 - 2
       id: 4,
       query:
         "Awesome! Let's learn about Quantum Python Programming! Here are some helpful links to help you on your way! L2, T1.2",

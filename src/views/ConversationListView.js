@@ -21,7 +21,10 @@ export default function ConversationListView(props) {
         <MetaText style={{ textAlign: "right" }}>You</MetaText>
         <Spacer size={0} />
         <div style={{ display: "flex", justifyContent: "right" }}>
-          <Bubble userReply={true}>
+          <Bubble
+            userReply={true}
+            style={{ color: "white", backgroundColor: "#dc9950" }}
+          >
             {REPLIES[i].alternatives[replyIndex]}
           </Bubble>
         </div>
