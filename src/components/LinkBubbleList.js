@@ -49,6 +49,7 @@ export default function LinkBubbleList(props) {
                   style={{
                     color: "gray",
                     fontSize: screenWidth < 500 ? 12 : 14,
+                    fontWeight: 400,
                     textAlign: "left",
                   }}
                 >

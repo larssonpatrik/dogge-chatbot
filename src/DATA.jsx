@@ -26,7 +26,8 @@ const RESULTS = [
     {
       // Alternative: 1 - 1
       id: 1,
-      query: `All right! So this task regards classes in Python. Namely the creation of the class and the initiation of its first instance! 
+      query: `All right! So this task regards classes in Python. Namely the creation of the class and the initiation of its first instance!
+              ${(<br />)}
               Here are some helpful links to help you on your way!`,
       links: [
         {
