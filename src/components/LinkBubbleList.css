@@ -1,0 +1,14 @@
+.link-img {
+  border-radius: 8px;
+  height: 125px;
+}
+
+.link-container {
+  display: flex;
+}
+
+@media screen and (max-width: 500px) {
+  .link-img {
+    height: 75px;
+  }
+}

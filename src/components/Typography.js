@@ -37,5 +37,9 @@ export function TitleText(props) {
 }
 
 export function SubTitleText(props) {
-  return <h2 className="subtitle-text">{props.children}</h2>;
+  return (
+    <h2 className="subtitle-text" style={{ ...props.style }}>
+      {props.children}
+    </h2>
+  );
 }

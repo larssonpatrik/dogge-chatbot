@@ -21,6 +21,10 @@
 
 @media screen and (max-width: 500px) {
   .bubble-container {
-    max-width: 50vw;
+    max-width: 60vw;
+  }
+
+  .user-reply-bubble {
+    max-width: 60vw;
   }
 }
